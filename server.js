@@ -2,7 +2,9 @@ require('dotenv').config()
 const express = require('express');
 const mongoose=require('mongoose');
 const multer=require('multer');
-const bcrypt= require('bcrypt')
+const bcrypt= require('bcrypt');
+const PORT = process.env.PORT || 2000;
+
 const app = express();
 app.use(express.urlencoded({extended:true}));
 const File = require('./models/File')
@@ -76,6 +78,6 @@ async function handleDownload(req,res)
 }
 
 
-app.listen(process.env.PORT ,()=>{
-    console.log(`server is running at port ${process.env.PORT}` )
+app.listen(PORT ,()=>{
+    console.log(`server is running at port ${PORT}` )
 })
